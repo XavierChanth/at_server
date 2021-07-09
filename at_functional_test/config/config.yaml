@@ -1,5 +1,3 @@
-# The @Protocol secondary server configurations.
-
 # The @Protocol root server configuration
 root_server:
   # The port to connect to root server
@@ -7,14 +5,32 @@ root_server:
   # The url to connect to root server
   url: 'root.atsign.org'
 
-92official22_server:
-  # # The port to connect to root server
-  92official22_port: 2285
-  # # The url to connect to root server
-  92official22_url: 2e518d29-af23-5fc1-888d-224b83c71197.hornet.atsign.zone
+# prod atsign details
+first_atsign_server:
+  first_atsign_name: '@high8289'
+  # # The port to connect to first atsign server
+  first_atsign_port: 2179
+  # # The url to connect to first atsign server
+  first_atsign_url: b1bee653-ce14-59d5-8015-cd82c1e09df0.hornet.atsign.zone
 
-high8289_server:
-  # # The port to connect to root server
-  high8289_port: 2179
-  # # The url to connect to root server
-  high8289_url: b1bee653-ce14-59d5-8015-cd82c1e09df0.hornet.atsign.zone
+second_atsign_server:
+  second_atsign_name: '@92official22'
+  # # The port to connect to second atsign server
+  second_atsign_port: 2285
+  # # The url to connect to second atsign server
+  second_atsign_url: 2e518d29-af23-5fc1-888d-224b83c71197.hornet.atsign.zone
+
+  # staging atsign details
+# first_atsign_server:
+#   first_atsign_name: '@flagfootballgreat3'
+#   # # The port to connect to first atsign server
+#   first_atsign_port: 2353
+#   # # The url to connect to first atsign server
+#   first_atsign_url: 5867982a-2731-5517-a66f-fca9598fb2a9.buzz.do-sf2.atsign.zone
+
+# second_atsign_server:
+#   second_atsign_name: '@acutesaudathedeal3'
+#   # # The port to connect to second atsign server
+#   second_atsign_port: 2459
+#   # # The url to connect to second atsign server
+#   second_atsign_url: a6582237-a0d2-5987-89f3-290f119d7e7f.buzz.do-sf2.atsign.zone

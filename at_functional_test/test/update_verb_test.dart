@@ -6,29 +6,35 @@ import 'commons.dart';
 import 'dart:io';
 
 void main() {
-  var first_atsign = '@high8289';
-  var second_atsign = '@92official22';
+  var first_atsign =
+      ConfigUtil.getYaml()['first_atsign_server']['first_atsign_name'];
+  var second_atsign =
+      ConfigUtil.getYaml()['second_atsign_server']['second_atsign_name'];
 
-  Socket _socket_second_atsign;
   Socket _socket_first_atsign;
+  Socket _socket_second_atsign;
 
   //Establish the client socket connection
   setUp(() async {
-    var high8289_server =  ConfigUtil.getYaml()['high8289_server']['high8289_url'];
-    var high8289_port =  ConfigUtil.getYaml()['high8289_server']['high8289_port'];
+    var first_atsign_server =
+        ConfigUtil.getYaml()['first_atsign_server']['first_atsign_url'];
+    var first_atsign_port =
+        ConfigUtil.getYaml()['first_atsign_server']['first_atsign_port'];
 
-    var official22_server =  ConfigUtil.getYaml()['92official22_server']['92official22_url'];
-    var official22_port =  ConfigUtil.getYaml()['92official22_server']['92official22_port'];
-    
-    //  var root_server = ConfigUtil.getYaml()['root_server']['url'];
+    var second_atsign_server =
+        ConfigUtil.getYaml()['second_atsign_server']['second_atsign_url'];
+    var second_atsign_port =
+        ConfigUtil.getYaml()['second_atsign_server']['second_atsign_port'];
+
+    // socket connection for first atsign
     _socket_first_atsign =
-        await secure_socket_connection(high8289_server, high8289_port);
+        await secure_socket_connection(first_atsign_server, first_atsign_port);
     socket_listener(_socket_first_atsign);
     await prepare(_socket_first_atsign, first_atsign);
 
-    //Socket connection for alice atsign
+    //Socket connection for second atsign
     _socket_second_atsign =
-    await secure_socket_connection(official22_server, official22_port);
+        await secure_socket_connection(second_atsign_server, second_atsign_port);
     socket_listener(_socket_second_atsign);
     await prepare(_socket_second_atsign, second_atsign);
   });

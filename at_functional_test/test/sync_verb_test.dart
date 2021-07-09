@@ -8,15 +8,20 @@ import 'package:at_functional_test/conf/config_util.dart';
 
 void main() {
 
-  var first_atsign = '@high8289';
+   var first_atsign =
+      ConfigUtil.getYaml()['first_atsign_server']['first_atsign_name'];
 
   Socket _socket_first_atsign;
-  
+
+  //Establish the client socket connection
   setUp(() async {
-    var high8289_server =  ConfigUtil.getYaml()['high8289_server']['high8289_url'];
-    var high8289_port =  ConfigUtil.getYaml()['high8289_server']['high8289_port'];
+    var first_atsign_server =
+        ConfigUtil.getYaml()['first_atsign_server']['first_atsign_url'];
+    var first_atsign_port =
+        ConfigUtil.getYaml()['first_atsign_server']['first_atsign_port'];
+
     _socket_first_atsign =
-        await secure_socket_connection(high8289_server, high8289_port);
+        await secure_socket_connection(first_atsign_server, first_atsign_port);
     socket_listener(_socket_first_atsign);
     await prepare(_socket_first_atsign, first_atsign);
   });
