@@ -61,8 +61,7 @@ class AtMetaData extends HiveObject {
   }
 
   Map toJson() {
-    // ignore: omit_local_variable_types
-    Map map = {};
+    var map = {};
     map['createdBy'] = createdBy;
     map['updatedBy'] = updatedBy;
     map['createdAt'] = createdAt?.toUtc().toString();
@@ -124,7 +123,7 @@ class AtMetaData extends HiveObject {
       isBinary = json[IS_BINARY];
       isEncrypted = json[IS_ENCRYPTED];
       dataSignature = json[PUBLIC_DATA_SIGNATURE];
-      sharedKeyStatus = json[sharedKeyStatus];
+      sharedKeyStatus = json[SHARED_KEY_STATUS];
     } catch (error) {
       print('AtMetaData.fromJson error: ' + error.toString());
     }
@@ -198,7 +197,7 @@ class AtMetaDataAdapter extends TypeAdapter<AtMetaData> {
       ..write(obj.isEncrypted)
       ..writeByte(15)
       ..write(obj.dataSignature)
-      ..write(16)
+      ..writeByte(16)
       ..write(obj.sharedKeyStatus);
   }
 }

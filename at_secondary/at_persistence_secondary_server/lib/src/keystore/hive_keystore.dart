@@ -82,7 +82,8 @@ class HiveKeystore implements SecondaryKeyStore<String, AtData?, AtMetaData?> {
             isCascade: isCascade,
             isBinary: isBinary,
             isEncrypted: isEncrypted,
-            dataSignature: dataSignature);
+            dataSignature: dataSignature,
+            sharedKeyStatus: sharedKeyStatus);
       } else {
         var hive_key = keyStoreHelper.prepareKey(key);
         var hive_value = keyStoreHelper.prepareDataForUpdate(
