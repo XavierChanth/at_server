@@ -119,11 +119,12 @@ class UpdateVerbHandler extends AbstractVerbHandler {
           isEncrypted: isEncrypted,
           dataSignature: dataSignature);
       //update status for shared keys
-      if (result != null && sharedWithAtSign != null) {
-        updateParams.metadata!.sharedKeyStatus =
+      if (result != null) {
+        atMetadata.sharedKeyStatus =
             getSharedKeyName(SharedKeyStatus.REMOTE_UPDATED);
         logger.finer(
             'updating shared key status. shared with : $sharedWithAtSign');
+        await keyStore!.putMeta(key, atMetadata);
       }
       response.data = result?.toString();
       if (AUTO_NOTIFY!) {

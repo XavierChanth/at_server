@@ -62,7 +62,8 @@ class AtNotificationKeystore implements SecondaryKeyStore {
       bool? isCascade,
       bool? isBinary,
       bool? isEncrypted,
-      String? dataSignature}) async {
+      String? dataSignature,
+      String? sharedKeyStatus}) async {
     await _box.put(key, value);
     AtNotificationCallback.getInstance().invokeCallbacks(value);
   }
